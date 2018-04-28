@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>美刻</title>
+		<script type="text/javascript" src="js/common.js" ></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<meta name="referrer" content="no-referrer|no-referrer-when-downgrade|origin|origin-when-crossorigin|unsafe-url">
+		<link rel="stylesheet" type="text/css" href="http://cdn.amazeui.org/amazeui/2.4.2/css/amazeui.min.css"/>  
+	    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>  
+	    <script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.4.2/js/amazeui.min.js"></script>
+	    <script src="js/tiyu.js"></script>
+	    <script src="js/create.js"></script>
+	    <script type="text/javascript" src="js/IT.js" ></script>
+	    <style type="text/css">
+	    	.am-tabs{
+	    		width: 100%;
+	   			height: 4.4rem;
+	    	}
+	    	[data-am-widget=tabs] {
+			    margin: 0px;
+			    margin-top: 0.5rem;
+			}
+	    	.am-tabs-nav li a{
+	    		font-size: 11px;
+	    		
+	    	}
+	    	.am-tabs-default .am-tabs-nav a {
+			    color: #0e90d2;
+			    line-height: 40px;
+			}
+	    </style>
+	    <script type="text/javascript">
+		$(document).ready(function(){ 
+				$.ajax({ 
+				type:"GET", 
+					//微信精选
+				    url:"http://api.tianapi.com/wxnew/?key=cf7f32ca14511e50603a087199789818&num=20&page=2", 
+				    dataType:"json", 
+					success:function(data){ 
+//					    var txapi="<ul>"; 
+//						for(var i=0; i<10; i++) 
+//						{
+//						    txapi+="<li>"+data["newslist"][i]["title"]+"</li>"; 
+//						    txapi+="<li>"+data["newslist"][i]["description"]+"</li>"; 
+//						    txapi+="<li>"+data["newslist"][i]["picUrl"]+"</li>"; 
+//						    txapi+="<li>"+data["newslist"][i]["url"]+"</li>"; 
+//						}
+//					    txapi+="</ul>"; 
+//						$('#result').append(txapi); 
+
+						var txapi="<ul>";
+						for(var i=0;i<20;i++){
+							txapi+="<li class='content am-cf'><div class='news-img am-fl'><img src=" + data.newslist[i]["picUrl"] +"/></div><a class='news-content' href=" +data.newslist[i]["url"] + "><p class='news-content-title' >" + data.newslist[i]["title"] + "</p><p class='news-content-desc'><span>"+data.newslist[i]["description"] +"</span><span>" +data.newslist[i]["ctime"]+ "</span></p></a></li>";
+						}
+						txapi+="</ul>";
+						$('#result0').append(txapi); 
+						console.log(data.newslist);
+						} 
+
+					}); 
+					return false; 
+			}); 
+	    </script>
+	    <script type="text/javascript">
+		$(document).ready(function(){ 
+				//娱乐精选
+				$.ajax({ 
+					type:"GET",
+					url:"http://api.tianapi.com/huabian/?key=cf7f32ca14511e50603a087199789818&num=30",
+				    dataType:"json", 
+					success:function(data){ 
+						var tyapi="<ul>";
+						for(var j=0;j<30;j++){
+							tyapi+="<li class='content am-cf'><div class='news-img am-fl'><img src=" + data.newslist[j]["picUrl"] + "/></div><a class='news-content' href=" +data.newslist[j]["url"] + "><p class='news-content-title' >" + data.newslist[j]["title"] + "</p><p class='news-content-desc'><span>"+data.newslist[j]["description"] +"</span><span>" +data.newslist[j]["ctime"]+ "</span></p></a></li>";
+						}
+						tyapi+="</ul>";
+						$('#result1').append(tyapi); 
+						console.log(data.newslist);
+						} 
+
+					}); 
+					return false; 
+			}); 
+	    </script>
+	    <link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<form class="headers" method="get" name="" action="" >
+			<div class="am-form myapp-news-search">
+				<i class="am-icon-search myapp-news-search-icon"></i>
+				<input type="search" placeholder="请输入你需要搜索的新闻......" id="search" class=" am-search am-form-field myapp-news-search-input" />
+			</div>
+		</form>
+		<div class="h50"></div>
+		<div class="news-body">
+				<div data-am-widget="tabs" class="am-tabs am-tabs-default">
+			      <ul class="am-tabs-nav am-cf">
+			          <li class="am-active"><a href="[data-tab-panel-0]">微信精选</a></li>
+			          <li class=""><a href="[data-tab-panel-1]">娱乐花边</a></li>
+			          <li class=""><a href="[data-tab-panel-2]">移动互联</a></li>
+			          <li class=""><a href="[data-tab-panel-3]">体育动态</a></li>
+			          <li class=""><a href="[data-tab-panel-4]">IT资讯</a></li>
+			      </ul>
+			      <div class="am-tabs-bd">
+			          <div data-tab-panel-0 class="am-tab-panel am-active">
+			            <div class="" style="margin-bottom: 49px;">
+			            	<ul id="result0">
+			            	<!--<li class="content am-cf">
+			            		<div class="news-img am-fl">
+			            			<img src="img/user.jpg"  class=""/>
+			            		</div>
+			            		<a class="news-content" href="">
+			            			<p class="news-content-title" >我的岁月，印尼而暖</p>
+			            			<p class="news-content-desc">
+			            				<span class="">书画风景</span>
+			            				<span class="">2018-04-18</span>
+			            			</p>
+			            		</a>
+			            	</li>-->
+			            </ul>
+			            </div>
+			          </div>
+			          <div data-tab-panel-1 class="am-tab-panel ">
+			          	<div class="" style="margin-bottom: 49px;">
+			            	<ul id="result1">
+			            		
+			            	</ul>
+			            </div>  
+			          </div>
+			          <div data-tab-panel-2 class="am-tab-panel ">
+			            	<ul id="result2"></ul>
+			          </div>
+			          <div data-tab-panel-3 class="am-tab-panel ">
+			            	<ul id="result3"></ul>
+			          </div>
+			          <div data-tab-panel-4 class="am-tab-panel ">
+			            	<ul id="result4"></ul>
+			          </div>
+			      </div>
+			 </div>
+		</div>
+		 
+		 
+		 
+		 
+		 
+		 
+		 <!--版权声明-->
+		 <!--<div class="am-u-sm-centered am-cf">
+			@版权所有
+		 </div>-->
+		 <!--结束-->
+		 
+		 
+		  <div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default "
+	      id="">
+	      <ul class="am-navbar-nav am-cf am-avg-sm-3">
+	          <li >
+	            <a href="index.html" class="">
+	                <img src="http://amazeui.b0.upaiyun.com/assets/i/cpts/navbar/Information.png" alt="消息"/>
+	                <span class="am-navbar-label">主页</span>
+	            </a>
+	          </li>
+	          <li data-am-navbar-share>
+	            <a href="help.html" class="">
+	                <img src="http://amazeui.b0.upaiyun.com/assets/i/cpts/navbar/share.png" alt="分享"/>
+	                <span class="am-navbar-label">发现生活帮</span>
+	            </a>
+	          </li>
+	          <li >
+	            <a href="about.html" class="">
+	                <img src="http://amazeui.b0.upaiyun.com/assets/i/cpts/navbar/map.png" alt="地图"/>
+	                <span class="am-navbar-label">关于我们</span>
+	            </a>
+	          </li>
+	          
+	          <li >
+	            <a href="me.html" class="">
+	                <img src="http://amazeui.b0.upaiyun.com/assets/i/cpts/navbar/phone.png" alt="呼叫"/>
+	                <span class="am-navbar-label">我的信息</span>
+	            </a>
+	          </li>
+
+	      </ul>
+	  	</div>
+	</body>
+</html>

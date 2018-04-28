@@ -1,0 +1,389 @@
+*,ul,li{
+	margin: 0;
+	padding: 0;
+}
+li,ol{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+/*磨块部分*/
+.myapp-circle-nav{
+	padding: 25px 10px 5px;
+	max-width: 100%;
+}
+.myapp-circle-nav-list{
+	width: 100%;
+	overflow: hidden;
+}
+.myapp-circle-nav-list li{
+	margin-bottom: 15px;
+}
+.myapp-circle-nav-list li span{
+	display: block;
+	width: 100%;
+	text-align: center;
+	padding-top: 5px;
+	font-size: 14px;
+	white-space: nowrap;
+	word-break: break-word;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.myapp-circle-nav-list li a{
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	display: block;
+	width: 55px;
+	height: 55px;
+	margin: 0 auto;
+	text-align: center;
+	color: #fff;
+	line-height: 55px;
+	font-size: 35px;
+}
+.myapp-circle-nav-news{
+	background-color: #fe9700;
+}
+.myapp-circle-nav-movies{
+	background-color: #f26765;
+}
+.myapp-circle-nav-weather{
+	background-color: #6f68df;
+}
+.myapp-circle-nav-ticket{
+	background-color: #7f2d00;
+}
+.myapp-circle-nav-reply{
+	background-color: #fd7a49;
+}
+.myapp-circle-nav-about{
+	background-color: #19cf8a;
+}
+.myapp-circle-nav-message{
+	background-color: #4493f7;
+}
+
+
+.am-navbar-nav{
+	background-color: #0e90d2;
+}
+.am-navbar{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 49px;
+	line-height: 49px;
+	z-index: 1000;
+}
+.am-navbar-default{
+	
+}
+/*news page css */
+.headers{
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	padding: 0.3rem 0.5rem;
+	background-color: #0094de;
+	height: 5.5rem;
+	padding: 1rem 1.6rem;
+}
+.h50{
+	height: 5.5rem;
+}
+/*.am-form .am-search{
+	width: 88%;
+	background-color: #0094de;
+	height: 3rem;
+	border-radius: 13px;
+	-webkit-border-radius: 13px;
+	background-color: #fff;
+	padding: 0 3%;
+	text-indent: 3px;
+}*/
+.myapp-news-search{
+	position: relative;
+
+}
+.myapp-news-search-icon{
+	position: absolute;
+	left: 10px;
+	top: 3px;
+	font-size: 19px;
+	color: gray;
+}
+.myapp-news-search-input{
+	text-indent: 28px;
+	border-radius: 8px !important;
+}
+
+
+
+/*news page css end*/
+
+
+
+/*new content show */
+.content{
+	width: 100%;
+	padding: 0 2%;
+}
+.content .news-img img{
+	width: 90px;
+	height: 65px;
+	margin-right: 15px;
+/*	background-color: red;*/
+}
+.content .news-content{
+	display: block;
+	overflow: hidden;
+}
+.content .news-content .news-content-title{
+	font-weight: 400;
+	color: #000;
+	font-size: 16px;
+	width: 100%;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	word-wrap: normal;
+}
+.content .news-content .news-content-desc{
+	font-size: 13px;
+	color: #999;
+}
+.content .news-content .news-content-desc span:nth-child(1){
+	margin-right: 6px;
+}
+
+
+
+
+
+
+
+/*login css*/
+.myapp-login-logo{
+	font-size: 110px;
+	color: #ff6a4c;
+}
+.am-form-set{
+
+	margin-bottom: 10px;
+}
+.myapp-login-form{
+	position: relative;
+}
+.am-form-group{
+	margin-top: 2.3rem !important;
+}
+
+.am-form-icon [class*=am-icon-] {
+    position: absolute;
+    left: .5em;
+    top: 50%;
+    display: block;
+    margin-top: -.5em;
+    line-height: 1;
+    z-index: 2;
+    
+}
+.myapp-login-form .am-form-icon i {
+    color: #ccc;
+    padding-left: 10px;
+}
+ .myapp-login-form-text{
+	text-indent: 10px;
+	border-radius: 24px !important;
+}
+.myapp-login-form-submit{
+    background: #ff6a4c !important;
+    border-radius: 30px !important;
+    border-color: #ff6a4c !important;
+    outline: none;
+    border: none;
+}
+.myapp-login-form-regis{
+	border-radius: 30px;
+}
+.myapp-login-form-shortcut{
+	position: relative;
+	height: 30px;
+	line-height: 30px;
+	overflow: hidden;
+	margin-top: 30px;
+	width: 88%;
+
+}
+.myapp-login-form-shortcut .myapp-login-form-hr {
+    background: #ccc;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: block;
+    width: 100%;
+    z-index: 1;
+}
+.myapp-login-form-shortcut .myapp-login-form--hr-font {
+    display: inline-block;
+    padding: 0 16px;
+    background: #fff;
+    position: relative;
+    font-size: 12px;
+    color: #ccc;
+    z-index: 2;
+}
+.am-icon-btn{
+	width: 40px;
+	height: 40px;
+	font-size: 20px;
+	line-height: 40px;
+}
+.myapp-login-form-listicon{
+	margin: 10px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*me page css*/
+.myapp-me-header{
+	background-color: #2d9cff;
+	padding: 20px 10px 20px;	
+}
+.myapp-me-header-title{
+	font-weight: 700;
+	color: #323232;
+	margin-top: 14px;
+	color: white;
+}
+.myapp-me-header-img img{
+	margin-top: 10px;
+	display: block;
+	width: 68px;
+	height: 68px;
+	border-radius: 50%;
+	
+}
+.myapp-me-header-moto{
+	text-indent: 8px;
+	line-height: 20px;
+	padding: 0px 20px;
+	color: #EEEEEE;
+	overflow : hidden;
+  	text-overflow: ellipsis;
+  	display: -webkit-box;
+  	-webkit-line-clamp: 2;
+  	-webkit-box-orient: vertical;
+}
+.myapp-me-header-detail li a{
+	color: white;
+}
+.myapp-me-header-detail li span{
+	color: black;
+	font-weight: 400;
+	font-size: 20px;
+}
+.myapp-me-bd{
+	padding: 10px 0px;
+	width: 100%;
+}
+.myapp-me-bd-list{
+	margin-top: 15px;
+	padding-left: 0;
+	padding-right: 0;
+}
+.myapp-me-bd-list li{
+	background-color: #fff;
+	color: #323232;
+	height: 48px;
+	line-height: 48px;
+}
+.myapp-me-bd-list li a{
+	display: block;
+	width: 100%;
+	height: 48px;
+	line-height: 48px;
+	padding: 5px 10px;
+	color: #323232;
+	font-weight: 400;
+}
+.myapp-me-bd-list li a .myapp-me-bd-list-post{
+	font-size: 20px;
+	color:#fe9700;
+}
+.myapp-me-bd-list li a .myapp-me-bd-list-reply{
+	font-size: 20px;
+	color:#f26765;
+}
+.myapp-me-bd-list li a .myapp-me-bd-list-shou{
+	font-size: 20px;
+	color:#6f68df;
+}
+.myapp-me-bd-list li a .myapp-me-bd-list-bian{
+	font-size: 20px;
+	color:#7f2d00;
+}
+.myapp-me-bd-list li a .myapp-me-bd-list-zhu{
+	font-size: 20px;
+	color: #fd7a49;
+}
+.myapp-me-bd-list li span{
+	padding-left: 8px;
+}
+/*版权信息*/
+.myapp-version p{
+	margin-top: 30px;
+	color: #B6B6B6;
+}
+
+
+
+
+/*about css start*/
+.qiehuan {
+	padding: 1rem;
+	background:#fff;
+}
+.tab-input {
+	border:1px solid #eee;
+	width:100%;
+	line-height:35px;
+	margin-bottom:15px;
+	text-indent:10px;
+}
+.tab-btn {
+	background:rgb(255,103,103);
+	color:#fff;
+	width:100%;
+	line-height:35px;
+	border:0;
+}
+.am-btn-border-radius{
+	margin-top: 10px;
+	border-radius: 8px !important;
+	-webkit-border-radius: 8px;
+}
+/*about css end*/
+
+
+
+
+/*天气模块*/
+
+/*结束*/

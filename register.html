@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>美刻</title>
+		<script type="text/javascript" src="js/common.js" ></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="http://cdn.amazeui.org/amazeui/2.4.2/css/amazeui.min.css"/>  
+	    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>  
+	    <script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.4.2/js/amazeui.min.js"></script>
+	    <link rel="stylesheet" href="css/style.css" />
+	</head>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//点击登入按钮进行判断
+			$("#submitBtn").click(function(){
+					if($('#username').val()=="" || $("#password").val()==""){
+						alert("用户名与密码不能为空！！！");
+						return false;
+					}else{
+					//初步判断
+						//获得加码后的用户名和密码
+						var username = encodeURI($("#username").val());
+						var password = encodeURI($("#password").val());
+						$.ajax({
+							type:'POST',
+							url:'/register',
+							dataType:'json',
+							data:{username:username,password:password},
+							success:function(){
+								//接收返回的数据，前端判断采取的动作
+								if(data){
+									if(data.Message=='false'){
+										alert("密码错误，请重新输入！");
+										window.location.href="Login.html";
+									}else{
+										alert("登入成功");
+										window.location.href="index.html";
+									}
+								}else{
+									alert("请求错误");
+								}
+							}
+						})
+						
+					}
+				})
+		})
+	
+		
+		
+	</script>
+	<body>
+		<div class="am-g">
+			<!--logo-->
+			<div class="am-sm-12 am-text-center">
+				<i class="am-icon-twitch myapp-login-logo"></i>
+			</div>
+			<!--login form-->
+			<div class="am-u-sm-11 am-u-sm-centered">
+				<form class="am-form" method="" action="" name="LoginForm">
+					<fieldset class="myapp-login-form am-form-set">
+						<div class="am-form-group am-form-icon">
+							<i class="am-icon-user"></i>
+							<input type="text" class="am-form-field myapp-login-form-text" placeholder="请输入你的用户名" name="username"  id="username" />
+						</div>
+						<div class="am-form-group am-form-icon">
+							<i class="am-icon-lock"></i>
+							<input type="text" class="am-form-field myapp-login-form-text" placeholder="请输入你的密码" name="password" id="password" />
+						</div>
+					</fieldset>
+					<button type="submit" class="am-btn am-btn-block myapp-login-form-submit am-btn-primary" id="submitBtn">用户注册</button>
+					<a class="am-fr" href="Login.html">用户登录</a>
+					<!--<button type="submit" class="am-btn am-btn-block myapp-login-form-regis am-btn-primary">用户注册</button>-->			
+				</form>
+			</div>
+			<!--第三方登入-->
+			<div class="am-u-sm-11 am-u-sm-centered am-text-center myapp-login-form-shortcut">
+				<hr class="myapp-login-form-hr" />
+				<span class="myapp-login-form--hr-font">第三方登入</span>
+			</div>
+			<div class="am-u-sm-12 am-text-center myapp-login-form-listicon">
+				<div class="am-u-sm-4">
+					<a href="##" class="am-icon-btn am-icon-qq am-primary am-icon-btn"></a>
+				</div>
+				<div class="am-u-sm-4">
+					<a href="##" class="am-icon-btn am-icon-wechat am-success am-icon-btn"></a>
+				</div>
+				<div class="am-u-sm-4">
+					<a href="##" class="am-icon-btn am-icon-weibo am-danger am-icon-btn"></a>
+				</div>
+			</div>
+			<!--版权 注明-->
+			<div class="">
+				<footer data-am-widget="footer" class="am-footer am-footer-default" data-am-footer="{  }">
+				    <div class="am-footer-miscs ">
+				
+				          <p>由 <a href="#" title="华东交通大学16软件3班212李航"
+				                                                target="_blank" class="">华东交通大学软件学院学生</a>
+				            提供技术支持</p>
+				        <p>CopyRight©2018  AllMobilize Inc.</p>
+				        <p>京ICP备xxxxxxxx</p>
+				    </div>
+		  		</footer>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>美刻</title>
+		<script type="text/javascript" src="js/common.js" ></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="http://cdn.amazeui.org/amazeui/2.4.2/css/amazeui.min.css"/>  
+	    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>  
+	    <script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.4.2/js/amazeui.min.js"></script>
+	    <style type="text/css">
+	    	.am-list-news-default ul li a{
+	    		color: #666;
+	    	}
+	    </style>
+	    <link rel="stylesheet" href="css/style.css" />
+	</head>
+	
+	<body>
+		<!--首页的header部分-->
+		<div data-am-widget="slider" class="am-slider am-slider-c1 am-slide-default" data-am-slider='{&quot;directionNav&quot;:false}' >
+		  <ul class="am-slides">
+		      <li>
+		        	<img src="img/scenery1.jpg" width="412px" height="231px">
+		          <div class="am-slider-desc">远方 有一个地方 那里种有我们的梦想</div>
+		         
+		      </li>
+		      <li>
+		        	<img src="img/ecjtu0.jpg" width="412px" height="231px">
+		          <div class="am-slider-desc">某天 也许会相遇 相遇在这个好地方</div>
+		         
+		      </li>
+		      <li>
+		        	<img src="img/scenery2.jpg" width="412px" height="231px">
+		          <div class="am-slider-desc">不要太担心 只因为我相信 终会走过这条遥远的道路</div>
+		         
+		      </li>
+		      <li>
+		        	<img src="img/scenery3.jpg" width="412px" height="231px">
+		          <div class="am-slider-desc">OH PARA PARADISE 是否那么重要 你是否那么地遥远</div>
+		         
+		      </li>
+		  </ul>
+		</div>
+		<!--首页的header部分结束-->
+		<!--功能模块分布开始  1)新闻热点 2)影讯合集 3)天气查询   4)火车票查询  5)博君一笑（神回复段子手）   6)联系我们  7)在线留言  -->
+		<div class="myapp-circle-nav am-g">
+			<ul class="myapp-circle-nav-list  am-avg-sm-4">
+				<li class="">
+					<a class="am-icon-twitter myapp-circle-nav-news" href="news.html" title="新闻热点"></a>
+					<span>新闻热点</span>
+				</li>
+				<li class="">
+					<a class="am-icon-youtube myapp-circle-nav-movies" href="news.html" title="新闻热点"></a>
+					<span>影讯合集</span>
+				</li>
+				<li class="">
+					<a class="am-icon-warning myapp-circle-nav-weather" href="weather.html" title="新闻热点"></a>
+					<span>天气查询</span>
+				</li>
+				<li class="">
+					<a class="am-icon-user myapp-circle-nav-ticket" href="train.html" title="新闻热点"></a>
+					<span>车票查询</span>
+				</li>
+				<li class="">
+					<a class="am-icon-facebook myapp-circle-nav-reply" href="news.html" title="新闻热点"></a>
+					<span>神回复</span>
+				</li>
+				<li class="">
+					<a class="am-icon-github myapp-circle-nav-about" href="about.html" title="新闻热点"></a>
+					<span>联系我们</span>
+				</li>
+				<li class="">
+					<a class="am-icon-home myapp-circle-nav-message" href="about.html" title="新闻热点"></a>
+					<span>在线留言</span>
+				</li>
+			</ul>
+		</div>
+		
+		
+		<!--微信精选标题栏-->
+		<div data-am-widget="titlebar" class="am-titlebar am-titlebar-default" >
+		    <h2 class="am-titlebar-title ">
+		        	微信精选
+		    </h2>
+		    <nav class="am-titlebar-nav">
+		        <a href="news.html" class="">more &raquo;</a>
+		    </nav>
+		</div>
+		
+		<!--内容列表开始-->
+		<div data-am-widget="list_news" class="am-list-news am-list-news-default" >
+		  <div class="am-list-news-bd am-list-news-default">
+			  <ul class="am-list">
+			      <li class="am-g am-list-item-dated">
+			          <a href="##" class="am-list-item-hd ">我很囧，你保重....晒晒旅行中的那些囧！</a>
+			          <span class="am-list-date">2013-09-18</span>
+			      </li>
+			      <li class="am-g am-list-item-dated">
+			          <a href="##" class="am-list-item-hd ">我最喜欢的一张画</a>
+			          <span class="am-list-date">2013-10-14</span>
+			      </li>
+			      <li class="am-g am-list-item-dated">
+			          <a href="##" class="am-list-item-hd ">“你的旅行，是什么颜色？” 晒照片，换北欧梦幻极光之旅！</a>
+			          <span class="am-list-date">2013-11-18</span>
+			      </li>
+			  </ul>
+		  </div>
+		</div>
+		
+		<!--热门景点图片标题栏-->
+		<div data-am-widget="titlebar" class="am-titlebar am-titlebar-default" >
+		    <h2 class="am-titlebar-title ">
+		        	热门景点图
+		    </h2>
+		    <nav class="am-titlebar-nav">
+		        <a href="#more" class="">more &raquo;</a>
+		    </nav>
+		</div>
+		<!--内容列表开始-->
+	  	<ul data-am-widget="gallery" class="am-gallery am-avg-sm-2
+	  am-avg-md-3 am-avg-lg-4 am-gallery-bordered" data-am-gallery="{  }" >
+	      <li>
+	        <div class="am-gallery-item">
+	            <a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">
+	              <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg"  alt="远方 有一个地方 那里种有我们的梦想"/>
+	                <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
+	                <div class="am-gallery-desc">2375-09-26</div>
+	            </a>
+	        </div>
+	      </li>
+	      <li>
+	        <div class="am-gallery-item">
+	            <a href="http://s.amazeui.org/media/i/demos/bing-2.jpg" class="">
+	              <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg"  alt="某天 也许会相遇 相遇在这个好地方"/>
+	                <h3 class="am-gallery-title">某天 也许会相遇 相遇在这个好地方</h3>
+	                <div class="am-gallery-desc">2375-09-26</div>
+	            </a>
+	        </div>
+	      </li>
+	      <li>
+	        <div class="am-gallery-item">
+	            <a href="http://s.amazeui.org/media/i/demos/bing-3.jpg" class="">
+	              <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg"  alt="不要太担心 只因为我相信"/>
+	                <h3 class="am-gallery-title">不要太担心 只因为我相信</h3>
+	                <div class="am-gallery-desc">2375-09-26</div>
+	            </a>
+	        </div>
+	      </li>
+	      <li>
+	        <div class="am-gallery-item">
+	            <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
+	              <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg"  alt="终会走过这条遥远的道路"/>
+	                <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
+	                <div class="am-gallery-desc">2375-09-26</div>
+	            </a>
+	        </div>
+	      </li>
+	  	</ul>
+	  <!--	<div class="h50"></div>-->
+		<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default "
+	      id="">
+	      <ul class="am-navbar-nav am-cf am-avg-sm-3">
+	          <li >
+	            <a href="index.html" class="">
+	                <img src="http://amazeui.b0.upaiyun.com/assets/i/cpts/navbar/Information.png" alt="消息"/>
+	                <span class="am-navbar-label">主页</span>
+	            </a>
+	          </li>
+	          <li >
+	            <a href="help.html" class="">
+	                <img src="http://amazeui.b0.upaiyun.com/assets/i/cpts/navbar/share.png" alt="分享"/>
+	                <span class="am-navbar-label">发现生活帮</span>
+	            </a>
+	          </li>
+	          <li >
+	            <a href="about.html" class="">
+	                <img src="http://amazeui.b0.upaiyun.com/assets/i/cpts/navbar/map.png" alt="地图"/>
+	                <span class="am-navbar-label">关于我们</span>
+	            </a>
+	          </li>
+	          
+	          <li >
+	            <a href="me.html" class="">
+	                <img src="http://amazeui.b0.upaiyun.com/assets/i/cpts/navbar/phone.png" alt="呼叫"/>
+	                <span class="am-navbar-label">我的信息</span>
+	            </a>
+	          </li>
+
+	      </ul>
+	  	</div>
+	</body>
+</html>
