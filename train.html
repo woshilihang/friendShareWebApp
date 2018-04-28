@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html class="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>车票查询</title>
+    <script type="text/javascript" src="js/jquery.min.js" ></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js" ></script>
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="css/Bootstrap.min.css" />
+</head>
+<body>
+	<div data-role="page">
+    <div data-role="header">
+	   <a href="index.html" data-icon="delete">Cancel</a>
+	     <h1>火车时刻表查询</h1>
+	   <a href="index.html" data-icon="check" data-theme="b">Save</a>
+     </div>
+     <div data-role="content"> 
+     	
+     	 	<div data-role="fieldcontain"> 
+     	 		<label for="name">发车站</label>    
+     	 		<input type="text" name="name" id="fache" value=""  />
+     	 	</div>	
+     	    <div data-role="fieldcontain"> 
+     	 		<label for="name">终点站</label>    
+     	 		<input type="text" name="name" id="zhongdian" value=""  />
+     	 	</div>
+     	 	<div data-role="fieldcontain"> 
+     	 		<label for="name">车次</label>    
+     	 		<input type="text" name="name" id="checi" value=""  />
+     	 	</div>
+    		<a href="##" data-transition = "slideup" id="chaxun"  data-role="button" data-theme="f" );>确认查询</a>   
+	 </div> 
+     
+   <ul data-role="listview" data-inset="true" id="listview" >
+	
+   </ul>
+
+     
+     
+     <div data-role="footer" data-position="fixed">
+    		<div data-role="navbar" data-iconpos="bottom"> 
+    			<ul>
+    				<li><a href="#" data-icon="grid">查询</a></li>
+    				<li><a href="#" data-icon="star" class="ui-btn-active">我的</a></li>
+    				<li><a href="#" data-icon="gear">设置</a></li>
+    			</ul>
+    		</div><!-- /navbar -->
+    	</div><!-- /footer -->   	
+</div>
+
+
+<!--详情-->
+<div data-role="page" id="detailPage">
+	<div data-role="header" data-position="inline" data-theme = "b">
+　       <a href="index.html" data-icon="back">Cancel</a>
+　      <h1 id="train_no">次</h1>
+    </div>
+   
+  <div class="ui-grid-b" id="per">
+	<div class="ui-block-a">
+		<div class="ui-bar ui-bar-d" >站点</div>
+	</div>
+	<div class="ui-block-b">
+		<div class="ui-bar ui-bar-d" >倒点</div>
+	</div>
+	<div class="ui-block-c">
+		<div class="ui-bar ui-bar-d" >开点</div>
+	</div>
+		
+	
+</div>
+</div>
+<script>
+    $(function(){
+    	$("#chaxun").click(function(){
+			if($("#fache").val() && $("#zhongdian").val()||$("#checi").val()){
+				if($("#checi").val()){				
+			 		var n = $("#checi").val();
+					$.getJSON("http://apis.juhe.cn/train/s?name="+n+"&key=92981a193f8af34cb40921a91eb72167"+"&callback=?", function(data,type){				 	  
+				    console.log(data.result);
+				    var a=data.result.train_info.name;
+				    console.log(data.result.station_list);
+				
+				        for(var j=0;j<data.result.station_list.length;j++){
+				    	 var station_name=data.result.station_list[j].station_name; 
+				    	 var arrived_time =data.result.station_list[j].arrived_time;
+				    	 var leave_time=data.result.station_list[j].leave_time;   //最开始的时间
+				    	 
+				    	 $("#per").append("<div class='ui-block-a'><div class='ui-bar ui-bar-d'>"+station_name+"</div>")
+				    	 $("#per").append("<div class='ui-block-b'><div class='ui-bar ui-bar-d'>"+arrived_time +"</div>")
+				    	  $("#per").append("<div class='ui-block-c'><div class='ui-bar ui-bar-d'>"+leave_time+"</div></div>")			    					    	 
+				       }
+				         $("#train_no").html(a+"次")
+				    });
+				    
+				    $.mobile.changePage("#detailPage");				    										
+			 	}else{
+    		        var start = $("#fache").val();
+			        var end = $("#zhongdian").val();
+			        
+			        console.log(start);
+			        console.log(end);
+				    $.getJSON("http://apis.juhe.cn/train/s2s?start=" +start+"&end="+ end+"&key=92981a193f8af34cb40921a91eb72167"+"&callback=?", function(data,type){			  
+			         console.log(data.result.data);
+			 	  for(var i=0;i<data.result.data.length;i++){
+			 		var trainOpp=data.result.data[i].trainOpp;
+			 		var start_staion =data.result.data[i].start_staion;
+			 		var end_station =data.result.data[i].end_station;
+			 		var leave_time =data.result.data[i].leave_time;
+			 		var arrived_time =data.result.data[i].arrived_time;
+			 		var ys ="用时：5时45";
+			 		$("#listview").append("<li><h3><a href=''>"+trainOpp+"</a><h3>"
+			 		 +"<p><strong>"+start_staion+"--"+end_station+"</strong></p>"
+			 			+"<p>"+ys+"</p>"
+			 		 +"<p class='ui-li-aside'><strong>"+leave_time+"--"+arrived_time+"</strong></p></li>")		 					 		
+			 		 $( "#listview" ).listview( "refresh" );
+			 		
+			 	       }
+			 	    });
+				}						
+			}else{
+				
+				alert("输入错误")
+			}
+    	});
+    	
+        $(document).on('vclick','#listview li a', function(){
+       	 var  t=$(this).text();
+       		
+        $("#train_no").html(t+"次")     	  
+       	 
+       	  	     
+					$.getJSON("http://apis.juhe.cn/train/s?name="+t+"&key=92981a193f8af34cb40921a91eb72167"+"&callback=?", function(data,type){				 	  
+				    console.log(data);
+				 var a=data.result.train_info.name;
+				    console.log(data.result.station_list);
+				
+				        for(var j=0;j<data.result.station_list.length;j++){
+				    	 var station_name=data.result.station_list[j].station_name; 
+				    	 var arrived_time =data.result.station_list[j].arrived_time;
+				    	 var leave_time=data.result.station_list[j].leave_time;   //最开始的时间
+				    	 
+				    	 $("#per").append("<div class='ui-block-a'><div class='ui-bar ui-bar-d'>"+station_name+"</div>")
+				    	 $("#per").append("<div class='ui-block-b'><div class='ui-bar ui-bar-d'>"+arrived_time +"</div>")
+				    	  $("#per").append("<div class='ui-block-c'><div class='ui-bar ui-bar-d'>"+leave_time+"</div></div>")			    					    	 
+				       }
+				        
+				   });      	        	  
+         $.mobile.changePage("xiangqing.html"); 
+       	
+       })
+    	
+    });
+
+
+  
+
+
+	/*$(document).on("pageinit","#index",function(){
+		alert("d")
+		$("#chaxun").on("tap",function(){
+			alert("dd");
+			var url="";
+			var data={
+				appkey:"",
+				trainno:""
+			};
+			$getJSON(url,data,function(data){
+				
+			})
+		})
+	})*/
+	
+</script>
+</body>
+</html>

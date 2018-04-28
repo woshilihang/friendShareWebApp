@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>美刻</title>
+		<script type="text/javascript" src="js/common.js" ></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="http://cdn.amazeui.org/amazeui/2.4.2/css/amazeui.min.css"/>  
+	    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>  
+	    <script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.4.2/js/amazeui.min.js"></script>
+	    <link rel="stylesheet" href="css/style.css" />
+	    <style type="text/javascript">
+
+	    </style>
+	</head>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// 注意：此url没有支持回调的函数，而是直接返回的js代码，请求完毕后，不用接收，相当于页面就有该段js代码
+//			var localUrl = "http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"
+//			$.getScript(localUrl,function(){
+//				//获取当前城市
+//				//console.log("当前省份：" + remote_ip_info.province+"	当前城市：" + remote_ip_info.city);
+//					var weatherUrl = "http://api.map.baidu.com/telematics/v3/weather?location=" + remote_ip_info.city + "&output=json&callback=?&ak=ulSRoKwP2C1Wrmer5xWX2GCa";	
+//					$.getJSON(weatherUrl, function(data){
+//							console.log(data.results);
+//							var txt ='<li><p class="am-text-lg">'+data.results.currentCity+'</p><p>'+data.results.weather_data+'</p><p>pm25:<span>44</span></p><p class="des">建议着薄外套、开衫牛仔衫裤等服装。年老体弱者应适当添加衣物，宜着夹克衫、薄毛衣等</p><p>阴转大雨</p><p>西南风3-4级</p><p>27 ~ 20℃</p><br /><img src="img/user.jpg" /></li>"';
+//							$('#weather-list').append(txt);
+//						});
+//		})
+		$.ajax({
+			type:"get",
+			url:"http://v.juhe.cn/weather/index?cityname=%E5%8D%97%E6%98%8C&dtype=&format=&key=b7ec89d06ea46a77214eb0cca8e03e07",
+			dataType:'jsonp',
+			success:function(data){
+				console.log(data.result);
+				var today =data.result.today;
+				var txt ='<li><p class="am-text-lg">'+today.city+'</p><p>'+today.date_y+'</p><p>'+today.dressing_advice+'</p><p>'+today.weather+'</p><p>'+today.wind+'</p><p>'+today.temperature+'</p>';
+				$('#weather-list').append(txt);
+			}
+			
+		});
+
+	})
+</script>
+	<body style="background-color: #F2F2F2;">
+		<
+         <!--
+         	作者：1278408713@qq.com
+         	时间：2018-04-22
+         	描述：lihang  天气查询
+         -->
+         <!--天气查询搜索框-->
+         <form class="headers" method="get" name="" action="" id="form-weather">
+			<div class="am-form myapp-news-search">
+				<i class="am-icon-search myapp-news-search-icon"></i>
+				<input type="search" placeholder="输入要查询的天气地点......" id="search" class=" am-search am-form-field myapp-news-search-input" />
+			</div>
+		</form>
+		<div class="h50"></div>
+		<div class="weather" style="width: 100%;overflow: hidden;">
+			<ul id="weather-list">
+				<!--<li>
+					<h2>今天</h2>
+					<p class="am-text-lg">南昌</p>
+					<p>周日 04月22日</p>
+					<p>pm25:<span>44</span></p>
+					<p class="des">建议着薄外套、开衫牛仔衫裤等服装。年老体弱者应适当添加衣物，宜着夹克衫、薄毛衣等</p>
+					<p>阴转大雨</p>
+					<p>西南风3-4级</p>
+					<p>27 ~ 20℃</p><br />
+				</li>-->
+			</ul>
+		</div>
+	</body>
+</html>
